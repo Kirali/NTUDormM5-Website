@@ -1,5 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+	function test(){
+		 dataVar = { user : "John2", password : "jkkkkkkkkk"};
+		 $.ajax({
+			type:"POST",
+			url: "http://localhost/web/dev/ntudormm5/index.php/welcome/ajaxTest",
+			data: dataVar,
+			async: false,
+			success: function(r){ 
+				alert(r);
+			}
+		 });
+	}
+	$(function(){
+		var variable = $('.footer');
+
+		variable.on('click',test);
+	});
+</script>
+
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
@@ -62,12 +83,19 @@
 		border: 1px solid #D0D0D0;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
+	.template{
+		display: none;
+	}
 	</style>
 </head>
 <body>
 
+<div class="template">
+	<p id="user"><?=$user?></p>
+</div>
+
 <div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+	<h1>Welcome to CodeIgniter,  !</h1>
 
 	<div id="body">
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
@@ -80,7 +108,7 @@
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
 	</div>
-
+	
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 </div>
 

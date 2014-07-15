@@ -19,7 +19,19 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$user = 'Oops'; //
+
+		$data['user'] = $user;
+		$this->load->view('welcome_message',$data);
+	}
+	public function show(){
+		echo "<h1> Hello World</h1>";
+	}
+	public function ajaxTest(){
+		$user = $this->input->post('password');
+		$response = array();
+		$response['text'] = 'Hello, '.$user;
+		echo ($response['text']);
 	}
 }
 
